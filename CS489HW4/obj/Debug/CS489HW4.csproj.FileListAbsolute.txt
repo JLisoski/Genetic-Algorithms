@@ -1,0 +1,9 @@
+C:\Users\JLiso\source\repos\CS489HW4\bin\Debug\CS489HW4.exe.config
+C:\Users\JLiso\source\repos\CS489HW4\bin\Debug\CS489HW4.exe
+C:\Users\JLiso\source\repos\CS489HW4\bin\Debug\CS489HW4.pdb
+C:\Users\JLiso\source\repos\CS489HW4\obj\Debug\CS489HW4.Form1.resources
+C:\Users\JLiso\source\repos\CS489HW4\obj\Debug\CS489HW4.Properties.Resources.resources
+C:\Users\JLiso\source\repos\CS489HW4\obj\Debug\CS489HW4.csproj.GenerateResource.cache
+C:\Users\JLiso\source\repos\CS489HW4\obj\Debug\CS489HW4.csproj.CoreCompileInputs.cache
+C:\Users\JLiso\source\repos\CS489HW4\obj\Debug\CS489HW4.exe
+C:\Users\JLiso\source\repos\CS489HW4\obj\Debug\CS489HW4.pdb
