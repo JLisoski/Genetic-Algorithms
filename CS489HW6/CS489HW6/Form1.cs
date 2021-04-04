@@ -135,5 +135,89 @@ namespace CS489HW6
             textBox4.Text += "Neural Network Created!\r\n";
             textBox4.Text += "*********************************************************\r\n";
         }
+
+        //Print Matrix in String Form 
+        private String printDoubleMatrix(int[,] numArray)
+        {
+            String matrixString = "";
+
+            matrixString += "[";
+
+            for (int i = 0; i < numArray.Length; i++)
+            {
+                for (int j = 0; j < numArray.Length; j++)
+                {
+                    matrixString += numArray[i, j].ToString();
+                    matrixString += " ";
+                }
+
+                if (i == (numArray.Length - 1))
+                {
+                    continue;
+                }
+                else
+                {
+                    matrixString += ", ";
+                }
+            }
+
+            matrixString += "]";
+
+            return matrixString;
+        }
+
+        //Print Array in String Form
+        private String printSingleMatrix(double[] numArray)
+        {
+            String matrixString = "[";
+
+            for (int i = 0; i < numArray.Length; i++)
+            {
+                matrixString += numArray[i].ToString();
+
+                if (i == (numArray.Length - 1))
+                {
+                    matrixString += "]";
+                }
+                else
+                {
+                    matrixString += ", ";
+                }
+            }
+
+            return matrixString;
+        }
+
+        private String printTripleMatrix(int[,] numArray)
+        {
+            String matrixString = "";
+
+            matrixString += "[";
+
+            for (int i = 0; i < numArray.Length; i++)
+            {
+                for (int k = 0; k < numArray.Length; k++)
+                {
+                    for (int j = 0; j < numArray.Length; j++)
+                    {
+                        matrixString += numArray[i, j].ToString();
+                        matrixString += " ";
+                    }
+
+                    if (i == (numArray.Length - 1))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        matrixString += ", ";
+                    }
+                }
+            }
+
+            matrixString += "]";
+
+            return matrixString;
+        }
     }
 }
