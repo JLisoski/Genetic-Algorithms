@@ -137,7 +137,7 @@ namespace CS489HW6
         }
 
         //Print Matrix in String Form 
-        private String printDoubleMatrix(int[,] numArray)
+        private String printDoubleMatrix(float[][] numArray)
         {
             String matrixString = "";
 
@@ -147,21 +147,12 @@ namespace CS489HW6
             {
                 for (int j = 0; j < numArray.Length; j++)
                 {
-                    matrixString += numArray[i, j].ToString();
+                    matrixString += numArray[i].ToString();
                     matrixString += " ";
                 }
 
-                if (i == (numArray.Length - 1))
-                {
-                    continue;
-                }
-                else
-                {
-                    matrixString += ", ";
-                }
+                matrixString += "]";
             }
-
-            matrixString += "]";
 
             return matrixString;
         }
@@ -188,7 +179,7 @@ namespace CS489HW6
             return matrixString;
         }
 
-        private String printTripleMatrix(int[,] numArray)
+        private String printTripleMatrix(float[][][] numArray)
         {
             String matrixString = "";
 
@@ -200,7 +191,7 @@ namespace CS489HW6
                 {
                     for (int j = 0; j < numArray.Length; j++)
                     {
-                        matrixString += numArray[i, j].ToString();
+                        matrixString += numArray[i].ToString();
                         matrixString += " ";
                     }
 
@@ -218,6 +209,59 @@ namespace CS489HW6
             matrixString += "]";
 
             return matrixString;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            //Clear TextBox
+            textBox4.Clear();
+
+            //Gives output box a vertical scroll bar
+            textBox4.ScrollBars = ScrollBars.Vertical;
+
+            //Load the input file
+            textBox4.Text += "*********************************************************\r\n";
+            textBox4.Text += "Loading Input File...\r\n";
+
+            //Check if file path has been entered
+            if (textBox5.Text == "")
+            {
+                //Default to Test.txt
+                textBox4.Text += "Defaulting to Test File!\r\n";
+                try
+                {
+                    currentNetwork.Load(@"C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW6\CS489HW6\Test.txt");
+                    textBox4.Text += "Input File Loaded!!!\r\n";
+                }
+                catch (System.IO.FileNotFoundException)
+                {
+                    textBox4.Text += "File Not Found!!!\r\n";
+                    textBox4.Text += "Input File Failed to Load!\r\n";
+                }
+            }
+            else
+            {
+                try
+                {
+                    //Call Neural Network Load Function 
+                    currentNetwork.Load(textBox5.Text);
+                    textBox4.Text += "Input File Loaded!!!";
+                }
+                catch (System.IO.FileNotFoundException)
+                {
+                    textBox4.Text += "File Not Found!\r\n";
+                    textBox4.Text += "Input File Failed to Load!\r\n";
+                }
+            }
+
+            textBox4.Text += "*********************************************************\r\n";
+            textBox4.Text += "Printing Neural Network Information...\r\n";
+            textBox4.Text += "Neurons = " + printDoubleMatrix(currentNetwork.neurons) + "\r\n";
+            textBox4.Text += "Biases = " + printDoubleMatrix(currentNetwork.biases) + "\r\n";
+            textBox4.Text += "Weights = " + printTripleMatrix(currentNetwork.weights) + "\r\n";
+            textBox4.Text += "Fitness = " + currentNetwork.fitness.ToString() + "\r\n";
+            textBox4.Text += "*********************************************************\r\n";
         }
     }
 }

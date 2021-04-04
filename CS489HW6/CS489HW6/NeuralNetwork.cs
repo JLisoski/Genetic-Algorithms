@@ -9,10 +9,10 @@ namespace CS489HW6
     class NeuralNetwork
     {
         private int[] layers;
-        private float[][] neurons;
-        private float[][] biases;
-        private float[][][] weights;
-        private int[] activations;
+        public float[][] neurons;
+        public float[][] biases;
+        public float[][][] weights;
+        //public int[] activations;
         Random rand = new Random();
 
         public float fitness = 0;
@@ -25,6 +25,10 @@ namespace CS489HW6
             {
                 this.layers[i] = layers[i];
             }
+
+            neurons = new float[layers[0]][];
+            biases = new float[layers[0]][];
+            weights = new float[layers[0]][][];
 
             InitNeurons();
             InitBiases();
