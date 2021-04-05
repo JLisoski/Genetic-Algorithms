@@ -174,14 +174,21 @@ namespace CS489HW6
             {
                 matrixString += numArray[i].ToString();
 
-                if (i == (currentNetwork.numOfLine - 1))
+                if (i == (currentNetwork.numOfLine/2)-1)
                 {
-                    matrixString += "]";
-                    break;
+                    matrixString += "]\r\n[";
                 }
                 else
                 {
-                    matrixString += ", ";
+                    if(i == currentNetwork.numOfLine - 1)
+                    {
+                        matrixString += "]";
+                        break;
+                    }
+                    else
+                    {
+                        matrixString += ", ";
+                    }
                 }
             }
 
@@ -224,7 +231,7 @@ namespace CS489HW6
         {
 
             //Clear TextBox
-            //textBox4.Clear();
+            textBox6.Clear();
 
             //Gives output box a vertical scroll bar
             textBox4.ScrollBars = ScrollBars.Vertical;
@@ -348,6 +355,7 @@ namespace CS489HW6
         {
             //Clear TextBox
             textBox4.Clear();
+            textBox7.Clear();
 
             //Declare Float Array of Inputs
             float[] inputs = new float[currentNetwork.numOfLine];
