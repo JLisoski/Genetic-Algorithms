@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -135,23 +136,53 @@ namespace CS489HW6
 
         public void Load(string path)
         {
+            string temporary = "";
+            int counter = 0;
+            string[] temp = new string[100];
+            int id = 1;
 
-            System.IO.StreamReader file = new System.IO.StreamReader(path);
-
-            //Grab line count
-            int numOfLine = System.IO.File.ReadLines(path).Count();
-            string[] ListLines = new string[numOfLine];
-            int index = 1;
-            for (int i = 1; i < numOfLine; i++)
+            try
             {
-                ListLines[i] = file.ReadLine();
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        temporary = sr.ReadLine();
+                        temp[id] = temporary;
+                        //counter = temporary.Length;
+                        Console.WriteLine(temporary);
+                        id++;
+                        counter++;
+                    }
+                    sr.Close();
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("The file could not be read: ");
+                Console.WriteLine(e.Message);
             }
 
-            //Close file
-            file.Close();
+            //Grab line count
+            int numOfLine = counter;
+            Console.WriteLine("The number of lines are... " + numOfLine.ToString());
 
-            if (new System.IO.FileInfo(path).Length > 0)
+            string[] ListLines = new string[numOfLine];
+            int index = 1;
+
+            for (int i = 1; i < numOfLine; i++)
             {
+                ListLines[i] = temp[i];
+                Console.WriteLine("ListLines[] = " + ListLines[i].ToString());
+            }
+
+            //For Debugging
+            Console.WriteLine("Being Reading File...");
+
+            if (new FileInfo(path).Length > 0)
+            {
+                Console.WriteLine("Inside the if path is longer then zero...");
+
                 for (int i = 0; i < biases.Length; i++)
                 {
                     for (int j = 0; j < biases[i].Length; j++)

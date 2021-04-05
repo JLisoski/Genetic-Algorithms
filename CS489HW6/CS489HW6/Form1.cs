@@ -231,7 +231,7 @@ namespace CS489HW6
                 textBox4.Text += "Defaulting to Test File!\r\n";
                 try
                 {
-                    currentNetwork.Load(@"C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW6\CS489HW6\Test.txt");
+                    currentNetwork.Load(@"C:\Users\JLiso\source\repos\JLisoski\CS-489\CS489HW6\CS489HW6\Test.txt");
                     textBox4.Text += "Input File Loaded!!!\r\n";
                 }
                 catch (System.IO.FileNotFoundException)
