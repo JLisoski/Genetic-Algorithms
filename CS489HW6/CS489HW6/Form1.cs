@@ -48,7 +48,7 @@ namespace CS489HW6
             {
                 //Default to 3
                 inputLayer = 3;
-                textBox4.Text += "Defaulting to 3 Input Layers!\r\n";
+                textBox4.Text += "Defaulting to 3 Neurons in the Input Layer!\r\n";
             }
             else
             {
@@ -56,19 +56,19 @@ namespace CS489HW6
                 try
                 {
                     inputLayer = Convert.ToInt32(textBox1.Text);
-                    textBox4.Text += "Setting up " + inputLayer.ToString() + " Input Layers!\r\n";
+                    textBox4.Text += "Setting up " + inputLayer.ToString() + " Neurons in the Input Layer!\r\n";
                 }
                 catch(OverflowException)
                 {
                     textBox4.Text += textBox1.Text + " is outside the range of the Int32 type.\r\n";
                     inputLayer = 3;
-                    textBox4.Text += "Defaulting to 3 Input Layers!\r\n";
+                    textBox4.Text += "Defaulting to 3 Neurons in the Input Layer!\r\n";
                 }
                 catch (FormatException)
                 {
                     textBox4.Text += "The " + textBox1.GetType().Name + " value " + textBox1.Text + " is not in a recognizable format.\r\n";
                     inputLayer = 3;
-                    textBox4.Text += "Defaulting to 3 Input Layers!\r\n";
+                    textBox4.Text += "Defaulting to 3 Neruons in the Input Layer!\r\n";
                 }
             }
 
@@ -77,7 +77,7 @@ namespace CS489HW6
             {
                 //Default to 6
                 hiddenLayer = 6;
-                textBox4.Text += "Defaulting to 6 Hidden Layers!\r\n";
+                textBox4.Text += "Defaulting to 6 Neurons in the Hidden Layer!\r\n";
             }
             else
             {
@@ -85,19 +85,19 @@ namespace CS489HW6
                 try
                 {
                     hiddenLayer = Convert.ToInt32(textBox2.Text);
-                    textBox4.Text += "Setting up " + hiddenLayer.ToString() + " Hidden Layers!\r\n";
+                    textBox4.Text += "Setting up " + hiddenLayer.ToString() + " Neurons in the Hidden Layer!\r\n";
                 }
                 catch (OverflowException)
                 {
                     textBox4.Text += textBox2.Text + " is outside the range of the Int32 type.\r\n";
                     hiddenLayer = 6;
-                    textBox4.Text += "Defaulting to 6 Hidden Layers!\r\n";
+                    textBox4.Text += "Defaulting to 6 Neurons in the Hidden Layer!\r\n";
                 }
                 catch (FormatException)
                 {
                     textBox4.Text += "The " + textBox2.GetType().Name + " value " + textBox2.Text + " is not in a recognizable format.\r\n";
                     hiddenLayer = 6;
-                    textBox4.Text += "Defaulting to 6 Hidden Layers!\r\n";
+                    textBox4.Text += "Defaulting to 6 Neurons in the Hidden Layer!\r\n";
                 }
             }
 
@@ -106,7 +106,7 @@ namespace CS489HW6
             {
                 //Default to 3
                 outputLayer = 3;
-                textBox4.Text += "Defaulting to 3 Output Layers!\r\n";
+                textBox4.Text += "Defaulting to 3 Neurons in the Output Layer!\r\n";
             }
             else
             {
@@ -114,19 +114,19 @@ namespace CS489HW6
                 try
                 {
                     outputLayer = Convert.ToInt32(textBox3.Text);
-                    textBox4.Text += "Setting up " + outputLayer.ToString() + " Output Layers!\r\n";
+                    textBox4.Text += "Setting up " + outputLayer.ToString() + " Neurons in the Output Layer!\r\n";
                 }
                 catch (OverflowException)
                 {
                     textBox4.Text += textBox1.Text + " is outside the range of the Int32 type.\r\n";
                     outputLayer = 3;
-                    textBox4.Text += "Defaulting to 3 Input Layers!\r\n";
+                    textBox4.Text += "Defaulting to 3 Neurons in the Output Layer!\r\n";
                 }
                 catch (FormatException)
                 {
                     textBox4.Text += "The " + textBox1.GetType().Name + " value " + textBox1.Text + " is not in a recognizable format.\r\n";
                     outputLayer = 3;
-                    textBox4.Text += "Defaulting to 3 Input Layers!\r\n";
+                    textBox4.Text += "Defaulting to 3 Neurons in the Output Layer!\r\n";
                 }
             }
 
@@ -145,7 +145,7 @@ namespace CS489HW6
 
             for (int i = 0; i < numArray.Length; i++)
             {
-                for (int j = 0; j < numArray.Length; j++)
+                for (int j = 0; j < numArray[i].Length; j++)
                 {
                     matrixString += numArray[i].ToString();
                     matrixString += " ";
@@ -158,7 +158,7 @@ namespace CS489HW6
         }
 
         //Print Array in String Form
-        private String printSingleMatrix(double[] numArray)
+        private String printSingleMatrix(string[] numArray)
         {
             String matrixString = "[";
 
@@ -166,9 +166,10 @@ namespace CS489HW6
             {
                 matrixString += numArray[i].ToString();
 
-                if (i == (numArray.Length - 1))
+                if (i == (currentNetwork.numOfLine - 1))
                 {
                     matrixString += "]";
+                    break;
                 }
                 else
                 {
@@ -187,9 +188,9 @@ namespace CS489HW6
 
             for (int i = 0; i < numArray.Length; i++)
             {
-                for (int k = 0; k < numArray.Length; k++)
+                for (int k = 0; k < numArray[i].Length; k++)
                 {
-                    for (int j = 0; j < numArray.Length; j++)
+                    for (int j = 0; j < numArray[k].Length; j++)
                     {
                         matrixString += numArray[i].ToString();
                         matrixString += " ";
@@ -219,6 +220,7 @@ namespace CS489HW6
 
             //Gives output box a vertical scroll bar
             textBox4.ScrollBars = ScrollBars.Vertical;
+            textBox6.ScrollBars = ScrollBars.Vertical;
 
             //Load the input file
             textBox4.Text += "*********************************************************\r\n";
@@ -228,11 +230,12 @@ namespace CS489HW6
             if (textBox5.Text == "")
             {
                 //Default to Test.txt
-                textBox4.Text += "Defaulting to Test File!\r\n";
+                textBox4.Text += "Defaulting to XOR/AND File!\r\n";
                 try
                 {
-                    currentNetwork.Load(@"C:\Users\JLiso\source\repos\JLisoski\CS-489\CS489HW6\CS489HW6\Test.txt");
+                    currentNetwork.Load(@"C:\Users\JLiso\source\repos\JLisoski\CS-489\CS489HW6\CS489HW6\XORAND.txt");
                     textBox4.Text += "Input File Loaded!!!\r\n";
+                    textBox6.Text += printSingleMatrix(currentNetwork.inputData);
                 }
                 catch (System.IO.FileNotFoundException)
                 {
@@ -245,8 +248,9 @@ namespace CS489HW6
                 try
                 {
                     //Call Neural Network Load Function 
-                    currentNetwork.Load(textBox5.Text);
-                    textBox4.Text += "Input File Loaded!!!";
+                    currentNetwork.Load(@textBox5.Text);
+                    textBox4.Text += "Input File Loaded!!!\r\n";
+                    textBox6.Text += printSingleMatrix(currentNetwork.inputData);
                 }
                 catch (System.IO.FileNotFoundException)
                 {

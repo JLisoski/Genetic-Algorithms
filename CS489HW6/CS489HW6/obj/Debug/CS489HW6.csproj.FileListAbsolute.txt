@@ -17,3 +17,4 @@ C:\Users\JLiso\source\repos\JLisoski\CS-489\CS489HW6\CS489HW6\obj\Debug\CS489HW6
 C:\Users\JLiso\source\repos\JLisoski\CS-489\CS489HW6\CS489HW6\obj\Debug\CS489HW6.csproj.CoreCompileInputs.cache
 C:\Users\JLiso\source\repos\JLisoski\CS-489\CS489HW6\CS489HW6\obj\Debug\CS489HW6.exe
 C:\Users\JLiso\source\repos\JLisoski\CS-489\CS489HW6\CS489HW6\obj\Debug\CS489HW6.pdb
+C:\Users\JLiso\source\repos\JLisoski\CS-489\CS489HW6\CS489HW6\obj\Debug\CS489HW6.csprojAssemblyReference.cache

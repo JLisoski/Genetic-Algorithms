@@ -13,6 +13,8 @@ namespace CS489HW6
         public float[][] neurons;
         public float[][] biases;
         public float[][][] weights;
+        public string[] inputData;
+        public int numOfLine;
         //public int[] activations;
         Random rand = new Random();
 
@@ -27,9 +29,9 @@ namespace CS489HW6
                 this.layers[i] = layers[i];
             }
 
-            neurons = new float[layers[0]][];
-            biases = new float[layers[0]][];
-            weights = new float[layers[0]][][];
+            //neurons = new float[layers[0]][];
+            //biases = new float[layers[0]][];
+            //weights = new float[layers[0]][][];
 
             InitNeurons();
             InitBiases();
@@ -139,7 +141,8 @@ namespace CS489HW6
             string temporary = "";
             int counter = 0;
             string[] temp = new string[100];
-            int id = 1;
+            inputData = new string[100];
+            int id = 0;
 
             try
             {
@@ -149,8 +152,11 @@ namespace CS489HW6
                     {
                         temporary = sr.ReadLine();
                         temp[id] = temporary;
-                        //counter = temporary.Length;
+                        //inputData[id] = temporary;
+                        //For Debugging
                         Console.WriteLine(temporary);
+                        inputData[id] = temporary;
+
                         id++;
                         counter++;
                     }
@@ -164,16 +170,19 @@ namespace CS489HW6
             }
 
             //Grab line count
-            int numOfLine = counter;
-            Console.WriteLine("The number of lines are... " + numOfLine.ToString());
+            numOfLine = counter;
+            //For Debugging
+            //Console.WriteLine("The number of lines are... " + numOfLine.ToString());
 
             string[] ListLines = new string[numOfLine];
             int index = 1;
 
-            for (int i = 1; i < numOfLine; i++)
+            for (int i = 0; i < numOfLine; i++)
             {
                 ListLines[i] = temp[i];
-                Console.WriteLine("ListLines[] = " + ListLines[i].ToString());
+
+                //For Debugging
+                //Console.WriteLine("ListLines[] = " + ListLines[i].ToString());
             }
 
             //For Debugging
@@ -181,7 +190,8 @@ namespace CS489HW6
 
             if (new FileInfo(path).Length > 0)
             {
-                Console.WriteLine("Inside the if path is longer then zero...");
+                //For Debugging
+                //Console.WriteLine("Inside the if path is longer then zero...");
 
                 for (int i = 0; i < biases.Length; i++)
                 {
@@ -203,6 +213,8 @@ namespace CS489HW6
                     }
                 }
             }
+
+            Console.WriteLine("File Read!!!\r\n");
         }
 
         public void Mutate(int chance, float val)
