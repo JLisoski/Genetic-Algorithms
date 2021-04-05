@@ -133,12 +133,6 @@ namespace CS489HW6
             //Set currentNetwork using the constructor with the parameters layers
             layers = new int[] { inputLayer, hiddenLayer, outputLayer };
 
-            //Console.WriteLine("Layers: \r\n");
-            //for (int i = 0; i < layers.Length; i++)
-            //{
-            //    Console.WriteLine(layers[i].ToString() + "\r\n");
-            //}
-
             currentNetwork = new NeuralNetwork(layers);
             textBox4.Text += "Neural Network Created!\r\n";
             textBox4.Text += "*********************************************************\r\n";

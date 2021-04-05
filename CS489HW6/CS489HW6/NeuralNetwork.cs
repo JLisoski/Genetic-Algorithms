@@ -29,10 +29,6 @@ namespace CS489HW6
                 this.layers[i] = layers[i];
             }
 
-            //neurons = new float[layers[0]][];
-            //biases = new float[layers[0]][];
-            //weights = new float[layers[0]][][];
-
             InitNeurons();
             InitBiases();
             InitWeights();
