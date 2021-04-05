@@ -46,6 +46,7 @@ namespace CS489HW6
             this.button3 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -151,20 +152,20 @@ namespace CS489HW6
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(28, 281);
+            this.label5.Location = new System.Drawing.Point(472, 311);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 24);
+            this.label5.Size = new System.Drawing.Size(100, 20);
             this.label5.TabIndex = 11;
             this.label5.Text = "Input Data:";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(10, 308);
+            this.textBox6.Location = new System.Drawing.Point(476, 334);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(149, 137);
+            this.textBox6.Size = new System.Drawing.Size(149, 111);
             this.textBox6.TabIndex = 12;
             // 
             // label6
@@ -180,9 +181,9 @@ namespace CS489HW6
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(175, 317);
+            this.button3.Location = new System.Drawing.Point(7, 284);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(164, 41);
+            this.button3.Size = new System.Drawing.Size(154, 41);
             this.button3.TabIndex = 14;
             this.button3.Text = "Feed Forward and Mutate";
             this.button3.UseVisualStyleBackColor = true;
@@ -190,10 +191,10 @@ namespace CS489HW6
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(355, 335);
+            this.textBox7.Location = new System.Drawing.Point(631, 334);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(165, 109);
+            this.textBox7.Size = new System.Drawing.Size(157, 111);
             this.textBox7.TabIndex = 15;
             // 
             // label7
@@ -201,17 +202,28 @@ namespace CS489HW6
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(387, 312);
+            this.label7.Location = new System.Drawing.Point(627, 311);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 20);
             this.label7.TabIndex = 16;
             this.label7.Text = "Prediction:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(5, 428);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(447, 16);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Homework 6, CS 489 - 1002, Joshua Lisoski, NSHE# 1005278442\r\n";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.button3);
@@ -256,6 +268,7 @@ namespace CS489HW6
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
 
