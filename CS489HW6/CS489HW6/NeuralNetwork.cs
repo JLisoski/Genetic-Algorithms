@@ -96,10 +96,24 @@ namespace CS489HW6
 
         public float[] FeedForward(float[] inputs)
         {
-            for (int i = 0; i < inputs.Length; i++)
+            //For Debugging
+            //Console.WriteLine("Neurons Length = " + neurons.Length.ToString());
+            //Console.WriteLine("Inputs Length = " + inputs.Length.ToString());
+
+            for (int i = 0; i < neurons.Length; i++)
             {
-                neurons[0][i] = inputs[i];
+                for (int j = 0; j < inputs.Length; j++)
+                {
+                    if (j < neurons[i].Length)
+                    {
+                        //Console.WriteLine("Neurons Length = " + neurons[i].Length.ToString());
+                        //Console.WriteLine("i = " + i.ToString());
+                        //Console.WriteLine("j = " + j.ToString());
+                        neurons[i][j] = inputs[j];
+                    }
+                }
             }
+
             for (int i = 1; i < layers.Length; i++)
             {
                 int layer = i - 1;
@@ -201,13 +215,28 @@ namespace CS489HW6
                         index++;
                     }
                 }
+
+                //For Debugging
+                //Console.WriteLine("Index Before Second For Loop = " + index.ToString());
+
                 for (int i = 0; i < weights.Length; i++)
                 {
+                    //Console.WriteLine("weights.length = " + weights.Length.ToString());
                     for (int j = 0; j < weights[i].Length; j++)
                     {
+                        //Console.WriteLine("weights[i].length = " + weights[i].Length.ToString());
                         for (int k = 0; k < weights[i][j].Length; k++)
                         {
-                            weights[i][j][k] = float.Parse(ListLines[index]);
+                            //Console.WriteLine("weights[i][j].length = " + weights[i][j].Length.ToString());
+                            //Console.WriteLine("i = " + i.ToString() + ", j = " + j.ToString() + ", k = " + k.ToString());
+                            //Console.WriteLine("ListLines Length = " + ListLines.Length);
+                            //Console.WriteLine("Index = " + index.ToString());
+
+                            if(index < 16)
+                            {
+                                weights[i][j][k] = float.Parse(ListLines[index]);
+                            }
+
                             index++;
                         }
                     }

@@ -16,7 +16,7 @@ namespace CS489HW6
         static int inputLayer;
         static int hiddenLayer;
         static int outputLayer;
-        static int[] layers = new int[]{ inputLayer, hiddenLayer, outputLayer };
+        static int[] layers;
         static NeuralNetwork currentNetwork;
 
         public Form1()
@@ -131,6 +131,14 @@ namespace CS489HW6
             }
 
             //Set currentNetwork using the constructor with the parameters layers
+            layers = new int[] { inputLayer, hiddenLayer, outputLayer };
+
+            //Console.WriteLine("Layers: \r\n");
+            //for (int i = 0; i < layers.Length; i++)
+            //{
+            //    Console.WriteLine(layers[i].ToString() + "\r\n");
+            //}
+
             currentNetwork = new NeuralNetwork(layers);
             textBox4.Text += "Neural Network Created!\r\n";
             textBox4.Text += "*********************************************************\r\n";
@@ -190,7 +198,7 @@ namespace CS489HW6
             {
                 for (int k = 0; k < numArray[i].Length; k++)
                 {
-                    for (int j = 0; j < numArray[k].Length; j++)
+                    for (int j = 0; j < numArray[i][k].Length; j++)
                     {
                         matrixString += numArray[i].ToString();
                         matrixString += " ";
@@ -216,7 +224,7 @@ namespace CS489HW6
         {
 
             //Clear TextBox
-            textBox4.Clear();
+            //textBox4.Clear();
 
             //Gives output box a vertical scroll bar
             textBox4.ScrollBars = ScrollBars.Vertical;
@@ -260,10 +268,204 @@ namespace CS489HW6
             }
 
             textBox4.Text += "*********************************************************\r\n";
-            textBox4.Text += "Printing Neural Network Information...\r\n";
-            textBox4.Text += "Neurons = " + printDoubleMatrix(currentNetwork.neurons) + "\r\n";
-            textBox4.Text += "Biases = " + printDoubleMatrix(currentNetwork.biases) + "\r\n";
-            textBox4.Text += "Weights = " + printTripleMatrix(currentNetwork.weights) + "\r\n";
+            textBox4.Text += "Neural Network Information...\r\n";
+            textBox4.Text += "\r\n";
+            textBox4.Text += "Neurons:\r\n";
+            for (int i = 0; i < currentNetwork.neurons.Length; i++)
+            {
+                for (int j = 0; j < currentNetwork.neurons[i].Length; j++)
+                {
+
+                    if (j == currentNetwork.neurons[i].Length - 1)
+                    {
+                        textBox4.Text += "Neurons[" + i.ToString() + "][" + j.ToString() + "] = " + currentNetwork.neurons[i][j].ToString();
+                    }
+                    else
+                    {
+
+                        textBox4.Text += "Neurons[" + i.ToString() + "][" + j.ToString() + "] = " + currentNetwork.neurons[i][j].ToString() + ", ";
+
+                    }
+
+                }
+
+                textBox4.Text += "\r\n";
+            }
+
+            textBox4.Text += "\r\n";
+            textBox4.Text += "Biases:\r\n";
+            for (int i = 0; i < currentNetwork.biases.Length; i++)
+            {
+                for (int j = 0; j < currentNetwork.biases[i].Length; j++)
+                {
+
+                    if (j == currentNetwork.biases[i].Length - 1)
+                    {
+                        textBox4.Text += "Biases[" + i.ToString() + "][" + j.ToString() + "] = " + currentNetwork.biases[i][j].ToString();
+                    }
+                    else
+                    {
+
+                        textBox4.Text += "Biases[" + i.ToString() + "][" + j.ToString() + "] = " + currentNetwork.biases[i][j].ToString() + ", ";
+
+                    }
+
+                }
+
+                textBox4.Text += "\r\n";
+            }
+
+            textBox4.Text += "\r\n";
+            textBox4.Text += "Weights:\r\n";
+            for (int i = 0; i < currentNetwork.weights.Length; i++)
+            {
+                for (int j = 0; j < currentNetwork.weights[i].Length; j++)
+                {
+                    for (int k = 0; k < currentNetwork.weights[i][j].Length; k++)
+                    {
+                        if (k == currentNetwork.weights[i][j].Length - 1)
+                        {
+                            textBox4.Text += "Weights[" + i.ToString() + "][" + j.ToString() + "][" + k.ToString() + "] = " + currentNetwork.weights[i][j][k].ToString();
+                        }
+                        else
+                        {
+
+                            textBox4.Text += "Weights[" + i.ToString() + "][" + j.ToString() + "][" + k.ToString() + "] = " + currentNetwork.weights[i][j][k].ToString() + ", ";
+
+                        }
+                    }
+
+                    textBox4.Text += "\r\n";
+                }
+            }
+
+            textBox4.Text += "\r\n";
+            textBox4.Text += "Fitness = " + currentNetwork.fitness.ToString() + "\r\n";
+            textBox4.Text += "*********************************************************\r\n";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //Clear TextBox
+            textBox4.Clear();
+
+            //Declare Float Array of Inputs
+            float[] inputs = new float[currentNetwork.numOfLine];
+
+            for (int i = 0; i < currentNetwork.numOfLine; i++)
+            {
+                inputs[i] = float.Parse(currentNetwork.inputData[i]);
+            }
+
+            float[] output = currentNetwork.FeedForward(inputs);
+            currentNetwork.Mutate(2, 0.5f);
+
+            //Output Prediction
+            for (int i = 0; i < currentNetwork.neurons.Length; i++)
+            {
+                for (int j = 0; j < currentNetwork.neurons[i].Length; j++)
+                {
+                    if(currentNetwork.neurons[i][j] < 0.5)
+                    {
+                        currentNetwork.neurons[i][j] = 0;
+                    }
+                    else
+                    {
+                        currentNetwork.neurons[i][j] = 1;
+                    }
+
+                    if (i==0 && j==0)
+                    {
+                        textBox7.Text += "[" + currentNetwork.neurons[i][j].ToString();
+                    }
+                    else
+                    {
+                         
+                        textBox7.Text += "," + currentNetwork.neurons[i][j].ToString();
+
+                    }
+                }
+            }
+
+            textBox7.Text += "]\r\n";
+
+            //Print Network Info
+            textBox4.Text += "*********************************************************\r\n";
+            textBox4.Text += "Neural Network Information...\r\n";
+            textBox4.Text += "\r\n";
+            textBox4.Text += "Neurons:\r\n";
+            for (int i = 0; i < currentNetwork.neurons.Length; i++)
+            {
+                for (int j = 0; j < currentNetwork.neurons[i].Length; j++)
+                {
+
+                    if(j == currentNetwork.neurons[i].Length-1)
+                    {
+                        textBox4.Text += "Neurons[" + i.ToString() + "][" + j.ToString() + "] = " + currentNetwork.neurons[i][j].ToString();
+                    }
+                    else
+                    {
+
+                        textBox4.Text += "Neurons[" + i.ToString() + "][" + j.ToString() + "] = " + currentNetwork.neurons[i][j].ToString() + ", ";
+
+                    }
+
+                }
+
+                textBox4.Text += "\r\n";
+            }
+
+            textBox4.Text += "\r\n";
+
+            textBox4.Text += "Biases:\r\n";
+            for (int i = 0; i < currentNetwork.biases.Length; i++)
+            {
+                for (int j = 0; j < currentNetwork.biases[i].Length; j++)
+                {
+
+                    if (j == currentNetwork.biases[i].Length - 1)
+                    {
+                        textBox4.Text += "Biases[" + i.ToString() + "][" + j.ToString() + "] = " + currentNetwork.biases[i][j].ToString();
+                    }
+                    else
+                    {
+
+                        textBox4.Text += "Biases[" + i.ToString() + "][" + j.ToString() + "] = " + currentNetwork.biases[i][j].ToString() + ", ";
+
+                    }
+
+                }
+
+                textBox4.Text += "\r\n";
+            }
+
+            textBox4.Text += "\r\n";
+
+            textBox4.Text += "Weights:\r\n";
+            for (int i = 0; i < currentNetwork.weights.Length; i++)
+            {
+                for (int j = 0; j < currentNetwork.weights[i].Length; j++)
+                {
+                    for (int k = 0; k < currentNetwork.weights[i][j].Length; k++)
+                    {
+                        if (k == currentNetwork.weights[i][j].Length - 1)
+                        {
+                            textBox4.Text += "Weights[" + i.ToString() + "][" + j.ToString() + "][" + k.ToString() + "] = " + currentNetwork.weights[i][j][k].ToString();
+                        }
+                        else
+                        {
+
+                            textBox4.Text += "Weights[" + i.ToString() + "][" + j.ToString() + "][" + k.ToString() + "] = " + currentNetwork.weights[i][j][k].ToString() + ", ";
+
+                        }
+                    }
+
+                    textBox4.Text += "\r\n";
+                }
+            }
+
+            textBox4.Text += "\r\n";
+
             textBox4.Text += "Fitness = " + currentNetwork.fitness.ToString() + "\r\n";
             textBox4.Text += "*********************************************************\r\n";
         }
