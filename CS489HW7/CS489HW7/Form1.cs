@@ -132,5 +132,23 @@ namespace CS489HW7
             textBox4.Text += "Neural Network Created!\r\n";
             textBox4.Text += "*********************************************************\r\n";
         }
+
+        //Load MNIST Data
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Train MNIST Data
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Test MNIST Data
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
