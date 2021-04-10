@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CS489HW6")]
+[assembly: AssemblyTitle("CS489HW7")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HP Inc.")]
-[assembly: AssemblyProduct("CS489HW6")]
+[assembly: AssemblyProduct("CS489HW7")]
 [assembly: AssemblyCopyright("Copyright © HP Inc. 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bc40219e-320e-450d-9289-d3d64c61ba38")]
+[assembly: Guid("f446d5f4-00d7-4dad-8eb2-5bfccbe2e925")]
 
 // Version information for an assembly consists of the following four values:
 //
