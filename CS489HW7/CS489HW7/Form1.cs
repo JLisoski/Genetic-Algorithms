@@ -16,5 +16,10 @@ namespace CS489HW7
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Console.WriteLine("System is Go!");
+        }
     }
 }
