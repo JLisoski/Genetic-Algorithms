@@ -1,0 +1,3 @@
+C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW7\CS489HW7\obj\Debug\CS489HW7.csprojAssemblyReference.cache
+C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW7\CS489HW7\obj\Debug\CS489HW7.Form1.resources
+C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW7\CS489HW7\obj\Debug\CS489HW7.csproj.GenerateResource.cache
