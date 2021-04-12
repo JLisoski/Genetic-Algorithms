@@ -1,0 +1,10 @@
+C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW7\CS489HW7\bin\Debug\CS489HW7.exe.config
+C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW7\CS489HW7\bin\Debug\CS489HW7.exe
+C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW7\CS489HW7\bin\Debug\CS489HW7.pdb
+C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW7\CS489HW7\obj\Debug\CS489HW7.csprojAssemblyReference.cache
+C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW7\CS489HW7\obj\Debug\CS489HW7.Form1.resources
+C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW7\CS489HW7\obj\Debug\CS489HW7.Properties.Resources.resources
+C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW7\CS489HW7\obj\Debug\CS489HW7.csproj.GenerateResource.cache
+C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW7\CS489HW7\obj\Debug\CS489HW7.csproj.CoreCompileInputs.cache
+C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW7\CS489HW7\obj\Debug\CS489HW7.exe
+C:\Users\JLiso\Documents\GitHub\CS-489\CS489HW7\CS489HW7\obj\Debug\CS489HW7.pdb
