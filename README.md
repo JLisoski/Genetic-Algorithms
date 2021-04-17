@@ -1,5 +1,5 @@
 # CS489  
-##Genetic Algorithm Homework:    
+Genetic Algorithm Homework:    
 TSP Normal = 7/10  
 TSP Dynamic = 7/10    
 TSP Genetic = Did Not Do!    
